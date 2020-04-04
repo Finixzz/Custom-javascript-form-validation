@@ -4,9 +4,10 @@ const password="Password";
 const confirmPassword="Confirm-password";
 const inputFields=document.querySelectorAll("input");
 const submitBtn=document.querySelector("#submit");
+var errorSummary=document.querySelector(".error-summary");
 
 
-function validateInput(element){
+function isValid(element){
     var inputField=document.querySelector("#"+element.id);
     var valid=true;
     var regexLetter=/[a-zA-Z]/;
@@ -48,9 +49,9 @@ function displayError(element){
     switch(element.id){
 
         case "Username":
-            if(!validateInput(element)){
+            if(!isValid(element)){
                 if(parent.querySelector(".warning")==null){
-                    parent.innerHTML+=`<p style="color: red;"" class="warning">Username field is required and must be at least 5 characters long</p>`;
+                    parent.innerHTML+=`<li style="color: red;"" class="warning">Username field is required</li>`;
 
                 }
             }
@@ -61,9 +62,9 @@ function displayError(element){
         break;
 
         case "Email":
-            if(!validateInput(element)){
+            if(!isValid(element)){
                 if(parent.querySelector(".warning")==null){
-                    parent.innerHTML+=`<p style="color: red;"" class="warning">Email field is required</p>`;
+                    parent.innerHTML+=`<li style="color: red;"" class="warning">Email field is required</li>`;
                 }
             }
             else{
@@ -73,10 +74,10 @@ function displayError(element){
         break;
 
         case "Password":
-            if(!validateInput(element)){
+            if(!isValid(element)){
                 if(parent.querySelector(".warning")==null){
-                    parent.innerHTML+=`<p style="color: red;" class="warning">Password field is required and must be atleast 6 characters long<br/>
-                    Password field must containt letters and numbers</p>`;
+                    parent.innerHTML+=`<li style="color: red;" class="warning">Password field is required and must be atleast 6 characters long</li>
+                    <li style="color: red;" class="warning" >Password field must containt letters and numbers</li>`;
                 }
             }
             else{
@@ -86,9 +87,9 @@ function displayError(element){
         break;
 
         case "Confirm-password":
-            if(!validateInput(element)){
+            if(!isValid(element)){
                 if(parent.querySelector(".warning")==null){
-                    parent.innerHTML+=`<p style="color: red;" class="warning">Confirm password field is required and must match password field</p>`;
+                    parent.innerHTML+=`<li style="color: red;" class="warning">Confirm password field is required and must match password field</li>`;
                 }
             }
             else{
@@ -99,6 +100,7 @@ function displayError(element){
     }
 }
 
+
 submitBtn.addEventListener("click",()=>{
     inputFields.forEach(i=>{
         displayError(i);
@@ -106,6 +108,7 @@ submitBtn.addEventListener("click",()=>{
 });
 
 inputFields.forEach(i=>i.addEventListener("change",()=>{
-    validateInput(i);
+    isValid(i);
 }));
+
 

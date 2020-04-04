@@ -63,11 +63,11 @@ button:hover{
 }
 
 .notvalid{
-    border:1px solid red;
+    border:1.5px solid red;
 }
 
 .valid{
-    border:1px solid green;
+    border:1.5px solid green;
 }
 
 .remove{

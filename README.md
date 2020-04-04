@@ -4,4 +4,5 @@ Validation rules used in this project:
  - Username field must be atleast 5 characters long
  - Password must be atleast 6 characters long, combination of numbers and letters
  - Confirm password field must match password field
+ 
 If any of rules are violated, user should see appropriate message.

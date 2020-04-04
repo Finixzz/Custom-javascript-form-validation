@@ -4,7 +4,6 @@ const password="Password";
 const confirmPassword="Confirm-password";
 const inputFields=document.querySelectorAll("input");
 const submitBtn=document.querySelector("#submit");
-var errorSummary=document.querySelector(".error-summary");
 
 
 function isValid(element){
@@ -51,7 +50,7 @@ function displayError(element){
         case "Username":
             if(!isValid(element)){
                 if(parent.querySelector(".warning")==null){
-                    parent.innerHTML+=`<li style="color: red;"" class="warning">Username field is required</li>`;
+                    parent.innerHTML+=`<li style="color: red;"" class="warning">Username field is required and must be atleast 5 characters long</li>`;
 
                 }
             }

@@ -25,7 +25,7 @@ function validateInput(element){
         case "Confirm-password":
             if(inputField.value!=document.querySelector("#Password").value
                  || inputField.value==""
-                 || document.querySelector("#Password").getAttribute("notvalid"))
+                 || document.querySelector("#Password").classList.contains("notvalid"))
                 valid=false;
         break;
     }
